@@ -20,25 +20,25 @@ public class CategoryController {
         categoryService.add(category);
         return Result.success();
     }
-
+    //获取文章分类列表
     @GetMapping
     public Result<List<Category>> list(){
         List<Category> cs = categoryService.list();
         return Result.success(cs);
     }
-
+    //获取文章分类详情
     @GetMapping("/detail")
     public  Result<Category> detail(Integer id){
         Category c = categoryService.findById(id);
         return Result.success(c);
     }
-
+    //更新文章分类
     @PutMapping
     public Result update(@RequestBody @Validated(Category.Update.class) Category category){
         categoryService.update(category);
         return Result.success();
     }
-
+    //删除文章分类
     @DeleteMapping
     public Result delete(Integer id){
         categoryService.deleteById(id);
